@@ -1,0 +1,32 @@
+name: "Dagger CI demo2"
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'dagger_examples/2/*'
+      - '.github/workflows/ci_demo2.yml'
+
+env:
+  REGISTRY_USER: elsousou
+  REGISTRY_URL: elsousou  
+  REGISTRY_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: Dagger CI init
+        uses: dagger/dagger-for-github@v2
+        with:
+         workdir: dagger_examples/2
+         args: project update
+      -
+        name: Dagger CI
+        uses: dagger/dagger-for-github@v2
+        with:
+          workdir: dagger_examples/2
+          args: do build
