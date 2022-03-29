@@ -4,7 +4,7 @@ metadata:
   name: nginx
   labels:
     type: "server"
-    env: "dev"
+    env: "prod"
 spec:
   selector:
     matchLabels:

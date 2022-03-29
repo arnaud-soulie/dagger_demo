@@ -111,13 +111,72 @@ PRINCIPE
 
 # LE DAG
 
+![bg w:1000 ](ressources/images/dag_init.png)
 ___
+
+# LE DAG
+
+![bg w:1000 ](ressources/images/dag_nutella.png)
+___
+
+# LE DAG
+
+![bg w:1000 ](ressources/images/dag_final.png)
+
+---
+
+# DES INGREDIENTS
+
+![bg right:40% contain ](ressources/images/pkgs_dagger.png)
+
+Des packages *Cue* qui permettent de **s'abstraire** des outils spécifiques.
+
+
+---
 
 # UN PLAN
 
-![bg right:40% w:300](ressources/images/accroc.jpeg)
+![bg contain ](ressources/images/plan.png)
 
-Le plan décrit les différentes étapes, les entrées...
+___
+
+
+
+<!-- _class: part -->
+
+CUELANG
+
+---
+
+# CUELANG
+
+- JSON sous stéroides
+- Packages
+- Les types sont des valeurs
+- Contraintes, définitions, schémas...
+- Valeurs par défaut
+
+![bg right:30% width:70%](ressources/images/cuelinks.png)
+
+---
+
+# CUE RECETTE
+
+![bg 80% ](ressources/images/cue1.png)
+
+___
+
+# CUE VALIDATION
+
+![bg h:550 75% ](ressources/images/cue2.png)
+
+___
+
+# CUE GENERATION
+
+![bg 60% ](ressources/images/cue3.png)
+
+
 ___
 
 

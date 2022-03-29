@@ -12,7 +12,7 @@
 
 #requiredLabels: #labels & {
 	type: string
-	env: *"dev" | "stg" | "prd"
+	env: *"dev" | "stg"
 }
 
 #Schema: #Deployment | #Service
