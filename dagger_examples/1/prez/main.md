@@ -178,20 +178,3 @@ ___
 
 
 ___
-
-
-<!-- _class: sommaire -->
-# Sommaire
-- Origine
-- Principe
-- Cue
-- Quelques effets démo
-
-___
-
-# Introduction
-
-### **Génèse**
-- Dévoilé en juin 2014 et présenté en version stable 1.0 un an plus tard.
-- Kubernetes est la reécriture en Go du système Borg que Google utilise en interne depuis 15 ans (2 milliards de conteneurs par semaine)
-- Il a été open-sourcé et sa gouvernance a été transmise à la [CNCF](https://www.cncf.io/about/members/) (1er projet [mais pas le dernier]((https://www.cncf.io/projects/)))

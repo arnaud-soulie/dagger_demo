@@ -1,0 +1,37 @@
+name: "Build and deploy Github pages"
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'dagger_examples/1/*'
+      - '.github/workflows/publish_prez.yml'
+
+jobs:
+
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      -
+        name: Dagger CI init
+        uses: dagger/dagger-for-github@v2
+        with:
+         workdir: dagger_examples/1
+         args: project update
+      -
+        name: Dagger CI
+        uses: dagger/dagger-for-github@v2
+        with:
+          workdir: dagger_examples/1
+          args: do build
+      - 
+        name: "Deploy Github Pages"
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages 
+          FOLDER: dagger_examples/1/prez/
