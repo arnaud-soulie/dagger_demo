@@ -8,8 +8,8 @@ on:
       - '.github/workflows/ci_demo2.yml'
 
 env:
-  REGISTRY_USER: elsousou
-  REGISTRY_URL: elsousou  
+  REGISTRY_USER: asoulie
+  REGISTRY_URL: fgtech  
   REGISTRY_TOKEN: ${{ secrets.DOCKER_TOKEN }}
 jobs:
   build:
