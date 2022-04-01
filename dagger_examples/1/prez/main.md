@@ -206,6 +206,6 @@ ___
 
 # DEPLOIEMENT KUBE
 
-![bg 60% ](ressources/images/cue3.png)
+![bg right:50% 70% ](ressources/images/dag_fullapp.png)
 
 ___
