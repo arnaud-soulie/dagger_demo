@@ -204,8 +204,42 @@ ___
 
 ___
 
+# GESTION DES MONOREPOS
+
+- Parallélisme
+- Exécution des steps impactés par les modifications uniquement
+
+![bg right:50% 70% ](ressources/images/dag_dualapp.png)
+
+___
+
 # DEPLOIEMENT KUBE
 
 ![bg right:50% 70% ](ressources/images/dag_fullapp.png)
 
 ___
+
+# UN PEU PLUS LOIN
+
+- Provisionner de l'infrastructure et l'utiliser à la volée
+- Librairies sur la v0.2.x réduites : voter pour les prochaines implémentations [ici](https://github.com/dagger/dagger/discussions/1922)
+
+![bg right:50% 70% ](ressources/images/dag_demoEKS.png)
+
+___
+
+# ET ENSUITE ?
+
+- [Dagger.io](https://dagger.io/)
+- [Discord](https://discord.com/channels/707636530424053791/796905486145683506/955856707773407292)
+- [Documentation](https://docs.dagger.io/)
+- [Github](https://github.com/dagger/dagger)
+- Release courante : v0.2.4
+- [Exemples](https://github.com/dagger/dagger/tree/main/pkg/universe.dagger.io/examples)
+- Discussions:
+  - [Which CI environment integration should we cover next?](https://github.com/dagger/dagger/discussions/1677)
+  - [What should we add next to the Dagger Universe?](https://github.com/dagger/dagger/discussions/1922)
+- Sujets à venir:
+  - Gérer des backends de cache
+  - Génération d'un visuel de DAG
+  - 
