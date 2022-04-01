@@ -1,7 +1,7 @@
 package demo
 
 import (
-	"dagger.io/dagger"
+    "dagger.io/dagger"
     "universe.dagger.io/docker"
     "dagger.io/dagger/core"
 )
@@ -28,7 +28,7 @@ dagger.#Plan & {
                 }
             },     
         ]
-        }
+    }
 
 	_output: core.#ReadFile & {
 				input: _build.output.rootfs

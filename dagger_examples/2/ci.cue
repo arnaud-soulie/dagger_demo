@@ -2,7 +2,7 @@
 //REGISTRY_TOKEN="_" REGISTRY_USER="_" REGISTRY_URL="localhost:5555" dagger do build -p ci.cue --log-format=plain --no-cache
 //docker run -p 12345:5000 -d --rm --pull always --name demo2 localhost:5555/demo2:latest
 //http://localhost:12345
-//https://hub.docker.com/repository/docker/elsousou/demo2
+//https://hub.docker.com/repository/docker/fgtech/demo2
 
 package ci
 
@@ -30,9 +30,9 @@ dagger.#Plan & {
                         },
                         docker.#Run & {
                             command: {
-                            name: "/bin/bash"
-                            args: ["-c", "echo $(date +%T)>buildtime.txt"]
-                    }
+                                name: "/bin/bash"
+                                args: ["-c", "echo $(TZ=Europe/Paris date +%T)>buildtime.txt"]
+                            }
                         },
                     ]
             }
@@ -42,8 +42,8 @@ dagger.#Plan & {
 			    auth: {
                     username: client.env.REGISTRY_USER
                     secret:   client.env.REGISTRY_TOKEN
-                    }
-		        }
+                }
+		    }
         }
     }
 }
