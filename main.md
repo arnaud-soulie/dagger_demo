@@ -161,7 +161,6 @@ CUELANG
 ---
 
 # CUE RECETTE
-
 ![bg 80% ](ressources/images/cue1.png)
 
 ___
@@ -176,5 +175,37 @@ ___
 
 ![bg 60% ](ressources/images/cue3.png)
 
+___
+
+<!-- _class: part -->
+
+EXEMPLES
+___
+
+# BUILD & PUSH
+
+![bg right:40% 30%](ressources/images/dag_buildpush.png)
+
+- Builder et pusher un simple conteneur sur un registry
+- Exécuter ce pipeline aussi bien en local qu'en remote
+- Utiliser des packages tout prêts
+___
+
+# BUILD & PUSH
+
+![bg right:50% 70% ](ressources/images/demo1.png)
+
+![w:350](ressources/images/flask.png)
+</br>
+
+- Plan portable: en local, ou sur [Github Actions](https://github.com/arnaud-soulie/dagger_demo/actions/workflows/ci_demo2.yml)
+- [Effet démo](http://localhost:12345)
+- [Docker Hub](https://hub.docker.com/r/fgtech/demo2)
+
+___
+
+# DEPLOIEMENT KUBE
+
+![bg 60% ](ressources/images/cue3.png)
 
 ___
