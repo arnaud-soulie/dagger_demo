@@ -236,9 +236,10 @@ ___
 # UN PEU PLUS LOIN
 
 - Provisionner de l'infrastructure et l'utiliser à la volée
+- Gestion des **monorepos**
 - Librairies sur la v0.2.x réduites : voter pour les prochaines implémentations [ici](https://github.com/dagger/dagger/discussions/1922)
 
-![bg right:50% 70% ](ressources/images/dag_demoEKS.png)
+![bg right:60% 80% ](ressources/images/dag_demoEKS.png)
 
 ___
 

@@ -1,52 +1,72 @@
-//prereq: docker run -d -p 5555:5000 --name registry registry:2
-//REGISTRY_TOKEN="_" REGISTRY_USER="_" REGISTRY_URL="localhost:5555" dagger do build -p ci.cue --log-format=plain --no-cache
-//docker run -p 12345:5000 -d --rm --pull always --name demo2 localhost:5555/demo2:latest
-//http://localhost:12345
-//https://hub.docker.com/repository/docker/fgtech/demo2
+//prereq: REGISTRY_TOKEN ; ./kubeconfig/config file
+//REGISTRY_URL="fgtech" REGISTRY_USER="asoulie" dagger do deploy -p ci.cue --log-format plain -l debug --no-cache
+
 
 package ci
 
 import (
 	"dagger.io/dagger"
 	"universe.dagger.io/docker"
-    "triche/kubernetes"
+    "triche.io:kubernetes"
+    "strings"
 )
 
 dagger.#Plan & {
 	client: {
+        commands: {
+            minikubeip: {
+                name: "minikube"
+                args: ["ip"]
+            }
+        }
         filesystem: {
             "./app": read: contents: dagger.#FS
-            "./config": read: contents: dagger.#FS
+            "./manifest": read: contents: dagger.#FS
+            "./kubeconfig": read: contents: dagger.#FS
         }
         env: {
         REGISTRY_URL: string
+        REGISTRY_USER: string
+        REGISTRY_TOKEN: dagger.#Secret
         }
     }
 
 	actions: {
         build: {
-                _build: docker.#Build & {
+            _build: docker.#Build & {
                     steps: [
                         docker.#Dockerfile & {
                             source: client.filesystem."./app".read.contents
                         },
                     ]
             }
-            docker.#Push & {
-                dest: "\(client.env.REGISTRY_URL)/app:latest"
+            _push: docker.#Push & {
+                dest: "\(client.env.REGISTRY_URL)/daggerapp:latest"
                 image: _build.output
+                auth: {
+                    username: client.env.REGISTRY_USER
+                    secret:   client.env.REGISTRY_TOKEN
+                }
 		    }
         }
 
         deploy: {
-            _build: actions.build //Link with build action
             kube: kubernetes.#Kubectl & {
-                kubeconfig: client.filesystem."./config".read.contents
-                manifest: client.filesystem."./app".read.contents
-                namespace: "toto"
+                customimage: strings.Trim(actions.build._push.result, "\n") //docker.io/fgtech/daggerapp:latest
+                ip: strings.Trim(client.commands.minikubeip.stdout, "\n")
+                kubeconfig: client.filesystem."./kubeconfig".read.contents
+                manifest: client.filesystem."./manifest".read.contents
+                namespace: "daggerdemo"
             }
-
         }
-    
     }
 }
+
+
+
+
+
+
+
+
+
