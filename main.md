@@ -149,11 +149,9 @@ Des packages *Cue* qui permettent de **s'abstraire** des outils.
 
 # UN PLAN
 
-![bg contain ](ressources/images/plan.png)
+![bg 90% ](ressources/images/plan.png)
 
 ___
-
-
 
 <!-- _class: part -->
 
