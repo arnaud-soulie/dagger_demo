@@ -97,15 +97,28 @@ La ***superglue*** DevOps"
 
 ## **Intérêt ?**
 - S'abstraire de tous les outils habituels du DevOps
-- Unifier le dev et la CI
+- ***CI platform agnostic***
+- Du vrai développement de CI
 - Gestion du cache et des artefacts intermédiaires
 - Enfin du debug de pipeline en local... :heart_eyes:
 
 ---
 
+# DAGGER
+
+![bg right:40% w:400 ](ressources/images/github.png)
+## **Comment ?**
+- *Any Docker Compatible Runtime*
+- Cuelang
+
+## **Pour qui ?**
+- Tu as honte de tes 50 runs rouges sur Jenkins parce que tu ne sais pas écrire 3 lignes de Groovy ?
+ - Tu n'en peux plus d'attendre après la CI qui ne fait que planter pour tester ton change ?
+---
+
 <!-- _class: part -->
 
-PRINCIPE
+PRINCIPE  
 
 ---
 
@@ -129,18 +142,16 @@ ___
 
 ![bg right:40% contain ](ressources/images/pkgs_dagger.png)
 
-Des packages *Cue* qui permettent de **s'abstraire** des outils spécifiques.
+Des packages *Cue* qui permettent de **s'abstraire** des outils.
 
 
 ---
 
 # UN PLAN
 
-![bg contain ](ressources/images/plan.png)
+![bg 90% ](ressources/images/plan.png)
 
 ___
-
-
 
 <!-- _class: part -->
 
@@ -148,15 +159,18 @@ CUELANG
 
 ---
 
-# CUELANG
+# Configure, Unify, Execute
 
+- Créé par Marcel van Lohuizen chez Google en 2018
 - JSON sous stéroides
-- Packages
-- Les types sont des valeurs
-- Contraintes, définitions, schémas...
-- Valeurs par défaut
+- Définir, valider et utiliser de la data
+- Notions:
+  - Packages
+  - Les types sont des valeurs
+  - Contraintes, définitions, schémas...
+  - Valeurs par défaut
 
-![bg right:30% width:70%](ressources/images/cuelinks.png)
+![bg right:30% width:50%](ressources/images/cuelogo.png)
 
 ---
 
@@ -175,6 +189,15 @@ ___
 
 ![bg 60% ](ressources/images/cue3.png)
 
+---
+
+# POUR DEMARRER
+
+![bg right:65% w:70% ](ressources/images/cuesummary.webp)
+
+- ## [Cuetorials.com](https://cuetorials.com/introduction/)
+- ## [Cuelang.org](https://cuelang.org/)
+- ## [Playground](https://cuelang.org/play/#cue@export@cue)
 ___
 
 <!-- _class: part -->
@@ -193,23 +216,14 @@ ___
 
 # BUILD & PUSH
 
-![bg right:50% 70% ](ressources/images/demo1.png)
+![bg right:50% 80% ](ressources/images/demo1.png)
 
-![w:350](ressources/images/flask.png)
+![w:550](ressources/images/flask.png)
 </br>
 
 - Plan portable: en local, ou sur [Github Actions](https://github.com/arnaud-soulie/dagger_demo/actions/workflows/ci_demo2.yml)
 - [Effet démo](http://localhost:12345)
 - [Docker Hub](https://hub.docker.com/r/fgtech/demo2)
-
-___
-
-# GESTION DES MONOREPOS
-
-- Parallélisme
-- Exécution des steps impactés par les modifications uniquement
-
-![bg right:50% 70% ](ressources/images/dag_dualapp.png)
 
 ___
 

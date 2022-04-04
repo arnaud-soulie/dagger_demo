@@ -10,7 +10,7 @@ import (
 func main() {
 	name := os.Getenv("NAME")
 	if name == "" {
-		name = "John Doe"
+		name = "Johfdfdn Doe"
 	}
 	fmt.Printf(greeting.Greeting(name))
 }

@@ -9,11 +9,15 @@ package ci
 import (
 	"dagger.io/dagger"
 	"universe.dagger.io/docker"
+    "triche/kubernetes"
 )
 
 dagger.#Plan & {
 	client: {
-        filesystem: "./app": read: contents: dagger.#FS
+        filesystem: {
+            "./app": read: contents: dagger.#FS
+            "./config": read: contents: dagger.#FS
+        }
         env: {
         REGISTRY_URL: string
         }
@@ -32,6 +36,16 @@ dagger.#Plan & {
                 dest: "\(client.env.REGISTRY_URL)/app:latest"
                 image: _build.output
 		    }
+        }
+
+        deploy: {
+            _build: actions.build //Link with build action
+            kube: kubernetes.#Kubectl & {
+                kubeconfig: client.filesystem."./config".read.contents
+                manifest: client.filesystem."./app".read.contents
+                namespace: "toto"
+            }
+
         }
     
     }
