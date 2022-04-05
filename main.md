@@ -142,7 +142,7 @@ ___
 
 ![bg right:40% contain ](ressources/images/pkgs_dagger.png)
 
-Des packages *Cue* qui permettent de **s'abstraire** des outils.
+Des packages *Cue* qui permettent de **s'abstraire** des autres outils.
 
 
 ---
@@ -205,7 +205,7 @@ ___
 EXEMPLES
 ___
 
-# BUILD & PUSH
+# BUILD, PUSH...
 
 ![bg right:40% 30%](ressources/images/dag_buildpush.png)
 
@@ -214,7 +214,7 @@ ___
 - Utiliser des packages tout prêts
 ___
 
-# BUILD & PUSH
+# BUILD, PUSH...
 
 ![bg right:50% 80% ](ressources/images/demo1.png)
 
@@ -227,9 +227,13 @@ ___
 
 ___
 
-# DEPLOIEMENT KUBE
+# ... & DEPLOY
 
-![bg right:50% 70% ](ressources/images/dag_fullapp.png)
+![bg right:40% 50% ](ressources/images/dag_fullapp.png)
+
+- Combiner des actions avec Cue
+- Utiliser des packages haut niveau : **#Kubectl**
+- **dagger do deploy**, et on laisse le café couler
 
 ___
 
@@ -241,20 +245,39 @@ ___
 
 ![bg right:60% 80% ](ressources/images/dag_demoEKS.png)
 
+---
+
+# UN PEU PLUS LOIN
+
+![bg h:80% w:50%](ressources/images/codefinal.png)
 ___
 
 # ET ENSUITE ?
 
+## **Découvrir**
+
 - [Dagger.io](https://dagger.io/)
-- [Discord](https://discord.com/channels/707636530424053791/796905486145683506/955856707773407292)
 - [Documentation](https://docs.dagger.io/)
-- [Github](https://github.com/dagger/dagger)
-- Release courante : v0.2.4
 - [Exemples](https://github.com/dagger/dagger/tree/main/pkg/universe.dagger.io/examples)
-- Discussions:
+
+## **Participer**
+
+- [Discord](https://discord.com/channels/707636530424053791/796905486145683506/955856707773407292)
+- [Github](https://github.com/dagger/dagger)
   - [Which CI environment integration should we cover next?](https://github.com/dagger/dagger/discussions/1677)
   - [What should we add next to the Dagger Universe?](https://github.com/dagger/dagger/discussions/1922)
-- Sujets à venir:
+___
+
+# ET ENSUITE ?
+
+![bg right:40% 60%](ressources/images/stats.png)
+
+Release courante : **v0.2.4**
+
+Des pistes :
+
+  
   - Gérer des backends de cache
   - Génération d'un visuel de DAG
-  - 
+
+
