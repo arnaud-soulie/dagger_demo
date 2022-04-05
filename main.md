@@ -249,7 +249,7 @@ ___
 
 # UN PEU PLUS LOIN
 
-![bg h:80% w:50%](ressources/images/codefinal.png)
+![bg 80%](ressources/images/codefinal.png)
 ___
 
 # ET ENSUITE ?
@@ -279,5 +279,3 @@ Des pistes :
   
   - Gérer des backends de cache
   - Génération d'un visuel de DAG
-
-
