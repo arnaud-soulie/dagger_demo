@@ -1,76 +1,72 @@
-//dagger do build -p ci.cue
+//prereq: REGISTRY_TOKEN ; ./kubeconfig/config file
+//REGISTRY_URL="fgtech" REGISTRY_USER="asoulie" dagger do deploy -p ci.cue --log-format plain -l debug --no-cache
 
-package goexample
+
+package ci
 
 import (
 	"dagger.io/dagger"
-	"dagger.io/dagger/core"
-	"universe.dagger.io/go"
 	"universe.dagger.io/docker"
-	"universe.dagger.io/alpine"
+    "triche.io:kubernetes"
+    "strings"
 )
 
 dagger.#Plan & {
-	client: filesystem: {
-        "./app1": read: contents: dagger.#FS
-        "./app2": read: contents: dagger.#FS
+	client: {
+        commands: {
+            minikubeip: {
+                name: "minikube"
+                args: ["ip"]
+            }
+        }
+        filesystem: {
+            "./app": read: contents: dagger.#FS
+            "./manifest": read: contents: dagger.#FS
+            "./kubeconfig": read: contents: dagger.#FS
+        }
+        env: {
+        REGISTRY_URL: string
+        REGISTRY_USER: string
+        REGISTRY_TOKEN: dagger.#Secret
+        }
     }
 
-	actions: build: {
-		_baseImage: alpine.#Build
+	actions: {
+        build: {
+            _build: docker.#Build & {
+                    steps: [
+                        docker.#Dockerfile & {
+                            source: client.filesystem."./app".read.contents
+                        },
+                    ]
+            }
+            _push: docker.#Push & {
+                dest: "\(client.env.REGISTRY_URL)/daggerapp:latest"
+                image: _build.output
+                auth: {
+                    username: client.env.REGISTRY_USER
+                    secret:   client.env.REGISTRY_TOKEN
+                }
+		    }
+        }
 
-		app1: {
-			build: go.#Build & {
-				source: client.filesystem."./app1".read.contents
-			}
-
-			exec: docker.#Run & {
-				input: _baseImage.output
-				command: {
-					name: "/bin/sh"
-					args: ["-c", "/bin/hello >> /output.txt"]
-				}
-				env: NAME: "App1"
-				mounts: binary: {
-					dest:     "/bin/hello"
-					contents: build.output
-					source:   "/test"
-				}
-			}
-
-			verify: core.#ReadFile & {
-				input: exec.output.rootfs
-				path:  "/output.txt"
-			} & {
-				contents: "Hi App1!"
-			}
-		}
-
-        app2: {
-			build: go.#Build & {
-				source: client.filesystem."./app2".read.contents
-			}
-
-			exec: docker.#Run & {
-				input: _baseImage.output
-				command: {
-					name: "/bin/sh"
-					args: ["-c", "/bin/hello >> /output.txt"]
-				}
-				env: NAME: "App2"
-				mounts: binary: {
-					dest:     "/bin/hello"
-					contents: build.output
-					source:   "/test"
-				}
-			}
-
-			verify: core.#ReadFile & {
-				input: exec.output.rootfs
-				path:  "/output.txt"
-			} & {
-				contents: "Hi App2!"
-			}
-		}
-	}
+        deploy: {
+            kube: kubernetes.#Kubectl & {
+                customimage: strings.Trim(actions.build._push.result, "\n") //docker.io/fgtech/daggerapp:latest
+                ip: strings.Trim(client.commands.minikubeip.stdout, "\n")
+                kubeconfig: client.filesystem."./kubeconfig".read.contents
+                manifest: client.filesystem."./manifest".read.contents
+                namespace: "daggerdemo"
+            }
+        }
+    }
 }
+
+
+
+
+
+
+
+
+

@@ -45,6 +45,13 @@ paginate: true
     left: 350px;
     font-weight: bold;
   }
+ section.title {
+    background-image: url("ressources/images/background_part.png");
+    background-size: cover;
+    color: white;
+    font-size: 150px;
+    text-align: right;
+  }
 
   section.part {
     background-image: url("ressources/images/background_part.png");
@@ -66,9 +73,23 @@ paginate: true
 
   }
 
+    section.title>p {
+    color: white;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    font-weight: bold;
+    transform: translate(-50%, -50%);
+    background: #233a7b;
+    width: max-content;
+
+  }
+
   </style>
 
 
+<!-- _class: title -->
+DAGGER
 
 ![bg](ressources/images/titre.png)
 
@@ -97,18 +118,17 @@ La ***superglue*** DevOps"
 
 ## **Intérêt ?**
 - S'abstraire de tous les outils habituels du DevOps
-- ***CI platform agnostic***
-- Du vrai développement de CI
+- De la CI ***platform agnostic***
 - Gestion du cache et des artefacts intermédiaires
-- Enfin du debug de pipeline en local... :heart_eyes:
+- Enfin du dev et du debug de pipeline en local... :heart_eyes:
 
 ---
 
 # DAGGER
 
-![bg right:40% w:400 ](ressources/images/github.png)
+![bg right:40% w:500 ](ressources/images/github.png)
 ## **Comment ?**
-- *Any Docker Compatible Runtime*
+- Un runtime *Docker Compatible*
 - Cuelang
 
 ## **Pour qui ?**
@@ -223,9 +243,17 @@ ___
 
 - Plan portable: en local, ou sur [Github Actions](https://github.com/arnaud-soulie/dagger_demo/actions/workflows/ci_demo2.yml)
 - [Effet démo](http://localhost:12345)
-- [Docker Hub](https://hub.docker.com/r/fgtech/demo2)
+
 
 ___
+
+# BUILD, PUSH...
+
+![bg right:50% 60% ](ressources/images/ghactions.png)
+
+- [Github Actions](https://github.com/arnaud-soulie/dagger_demo/actions/workflows/ci_demo2.yml) en 2 lignes
+- [Docker Hub](https://hub.docker.com/r/fgtech/demo2)
+---
 
 # ... & DEPLOY
 
@@ -247,9 +275,9 @@ ___
 
 ---
 
-# UN PEU PLUS LOIN
+# IMPLEMENTATION V0.1.x
 
-![bg h:80% w:50%](ressources/images/codefinal.png)
+![bg 80%](ressources/images/codefinal.png)
 ___
 
 # ET ENSUITE ?
@@ -262,7 +290,7 @@ ___
 
 ## **Participer**
 
-- [Discord](https://discord.com/channels/707636530424053791/796905486145683506/955856707773407292)
+- [Discord](https://discord.gg/AjN9hhbfQj)
 - [Github](https://github.com/dagger/dagger)
   - [Which CI environment integration should we cover next?](https://github.com/dagger/dagger/discussions/1677)
   - [What should we add next to the Dagger Universe?](https://github.com/dagger/dagger/discussions/1922)
@@ -274,10 +302,14 @@ ___
 
 Release courante : **v0.2.4**
 
-Des pistes :
+Des pistes pour la suite:
 
-  
+  - De nouveaux packages et de la doc
   - Gérer des backends de cache
   - Génération d'un visuel de DAG
 
+___
 
+<!-- _class: part -->
+
+MERCI !
