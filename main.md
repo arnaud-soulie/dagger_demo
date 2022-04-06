@@ -97,18 +97,17 @@ La ***superglue*** DevOps"
 
 ## **Intérêt ?**
 - S'abstraire de tous les outils habituels du DevOps
-- ***CI platform agnostic***
-- Du vrai développement de CI
+- De la CI ***platform agnostic***
 - Gestion du cache et des artefacts intermédiaires
-- Enfin du debug de pipeline en local... :heart_eyes:
+- Enfin du dev et du debug de pipeline en local... :heart_eyes:
 
 ---
 
 # DAGGER
 
-![bg right:40% w:400 ](ressources/images/github.png)
+![bg right:40% w:500 ](ressources/images/github.png)
 ## **Comment ?**
-- *Any Docker Compatible Runtime*
+- Un runtime *Docker Compatible*
 - Cuelang
 
 ## **Pour qui ?**
@@ -247,7 +246,7 @@ ___
 
 ---
 
-# UN PEU PLUS LOIN
+# IMPLEMENTATION V0.1.x
 
 ![bg 80%](ressources/images/codefinal.png)
 ___
@@ -274,8 +273,14 @@ ___
 
 Release courante : **v0.2.4**
 
-Des pistes :
+Des pistes pour la suite:
 
-  
+  - De nouveaux packages et de la doc
   - Gérer des backends de cache
   - Génération d'un visuel de DAG
+
+___
+
+<!-- _class: part -->
+
+MERCI !
