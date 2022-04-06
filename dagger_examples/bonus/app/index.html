@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <style>
+       html {
+            background: url("static/background.png") no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        h1 {
+            color: white
+        }
+
+        @font-face {
+            font-family: "myfont";
+            src: url("static/Homer_Simpson.ttf");
+        }
+        
+        .doo {
+            font-family: "myfont";
+        }
+
+        .cartoon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-70%, -50%);
+  width: 80vmin;
+  height: 80vmin;
+}
+
+
+.cartoon div {
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.b {
+  border: 0.5vmin solid black;
+}
+
+.r {
+  border-radius: 100%;
+}
+
+.hb::before,
+.ha::after {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+
+.homer {
+    top: 36%;
+  left: 54%;
+}
+
+.bubble {
+  width: 40%;
+  height: 25%;
+  left: 73%;
+  top: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 3vmin;
+  background: #ffd;
+  box-shadow: 0 -0.25vmin, 0 0.125vmin;
+  font-family: "myfont";
+}
+
+.bubble::before {
+  width: 40%;
+  height: 100%;
+  bottom: -51%;
+  border-radius: 50%;
+  left: 10%;
+  box-shadow: 0.5vmin 0, 2vmin -0.5vmin #ffd, 2vmin -0.5vmin 0 0.5vmin;
+  clip-path: polygon(0% 49%, 150% 48%, 150% 100%, 0% 100%);
+}
+
+
+    </style>
+  </head>
+  <body>
+    <div class="cartoon">
+        <div class="homer"><img src="static/pizza.png" /></div>
+        <div class="bubble b r hb">Wooooh !!! Déjà !!</br>Quelqu'un a commandé les pizzas ??</div>
+    </div>
+  </body>
+
+</html>
