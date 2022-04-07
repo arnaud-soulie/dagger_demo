@@ -181,14 +181,16 @@ CUELANG
 
 # Configure, Unify, Execute
 
-- Créé par Marcel van Lohuizen chez Google en 2018
+- Créé par Marcel van Lohuizen, fork de Google en 2021
 - JSON sous stéroides
 - Définir, valider et utiliser de la data
 - Notions:
   - Packages
+  - Composition : l'ordre n'a pas d'importance
   - Les types sont des valeurs
-  - Contraintes, définitions, schémas...
+  - Contraintes, définitions...
   - Valeurs par défaut
+- Pour ? API generation, configuration, data templating, policy check, declarative scripting...
 
 ![bg right:30% width:50%](ressources/images/cuelogo.png)
 
@@ -312,4 +314,12 @@ ___
 
 <!-- _class: part -->
 
-MERCI !
+Merci !
+
+___
+
+# MAIS OU SONT LES SLIDES ?
+
+[https://arnaud-soulie.github.io/dagger_demo/](https://arnaud-soulie.github.io/dagger_demo/)
+[Code démo](https://github.com/arnaud-soulie/dagger_demo/)
+![bg right:40% 70% ](ressources/images/qrcode.png)
