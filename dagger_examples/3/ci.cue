@@ -25,9 +25,9 @@ dagger.#Plan & {
             "./kubeconfig": read: contents: dagger.#FS
         }
         env: {
-        REGISTRY_URL: string
-        REGISTRY_USER: string
-        REGISTRY_TOKEN: dagger.#Secret
+            REGISTRY_URL: string
+            REGISTRY_USER: string
+            REGISTRY_TOKEN: dagger.#Secret
         }
     }
 

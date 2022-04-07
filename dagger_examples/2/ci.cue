@@ -15,9 +15,9 @@ dagger.#Plan & {
 	client: {
         filesystem: "./app": read: contents: dagger.#FS
         env: {
-        REGISTRY_USER: string
-        REGISTRY_TOKEN: dagger.#Secret
-        REGISTRY_URL: string
+            REGISTRY_USER: string
+            REGISTRY_TOKEN: dagger.#Secret
+            REGISTRY_URL: string
         }
     }
 
